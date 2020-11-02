@@ -1,0 +1,20 @@
+TCP:
+	• reg;(string)myName;(int)myUdpPort
+	отправляется клиентом сразу после "_tcpClient.Connect(_serverEP);"
+
+	• shoot;
+
+	• exit
+	даёт понять серверу что вас нужно отключить
+
+	• exit;name
+	даёт понять клиенту что этот игрок желает отключиться
+	
+	• result
+	Данное сообщение является результатом авторизации и приходит сразу после отправки клиентом запрос о входе "reg;...;..."
+
+UDP:
+	Перемещение и поворот
+	 клиент отправляет data;(float)pos.x;(float)pos.y;(float)rot
+	 клиент получает data;(string)otherPlayerName;(float)pos.x;(float)pos.y;(float)rot
+	
