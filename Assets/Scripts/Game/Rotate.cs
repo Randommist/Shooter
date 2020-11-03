@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Rotate : MonoBehaviour
+public class Rotate : NetworkBehaviour
 {
     void Start()
     {
@@ -12,7 +13,7 @@ public class Rotate : MonoBehaviour
 
     void Update()
     {
-        if (!GlobalVariables.IsPause)
+        if (!GlobalVariables.IsPause && isLocalPlayer)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = mousePosition - transform.position;
