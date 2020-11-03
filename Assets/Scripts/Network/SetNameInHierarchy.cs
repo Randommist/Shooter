@@ -12,6 +12,10 @@ public class SetNameInHierarchy : NetworkBehaviour
         {
             gameObject.name = "Local";
         }
+        else
+        {
+            GetComponent<Rigidbody2D>().isKinematic = true;
+        }
     }
 
 }
