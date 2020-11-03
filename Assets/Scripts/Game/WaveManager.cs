@@ -8,19 +8,14 @@ public class WaveManager : MonoBehaviour
     public GameObject[] Zombies;
     public Transform[] SpawnPoints;
     public static int WaveLevel = 0;
+    public Sun Sun;
 
-    private Sun sun;
     private float spawnTime = 5;
     private float spawnTimeLater;
 
-    private void Start()
-    {
-        sun = GameObject.Find("Sun").GetComponent<Sun>();
-    }
-
     void Update()
     {
-        if (sun.Hours >= 22 || sun.Hours < 8)
+        if (Sun.Hours >= 22 || Sun.Hours < 8)
         {
             //Спавн зомби
             spawnTimeLater += Time.deltaTime;
