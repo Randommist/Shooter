@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Move : MonoBehaviour
+public class Move : NetworkBehaviour
 {
     public float Speed = 1;
     private Rigidbody2D rb;
@@ -22,7 +23,7 @@ public class Move : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GlobalVariables.IsPause)
+        if (!GlobalVariables.IsPause && isLocalPlayer)
         {
             rb.MovePosition(rb.position + motion * Time.fixedDeltaTime);
         }
