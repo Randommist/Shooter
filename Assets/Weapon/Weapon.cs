@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : NetworkBehaviour
 {
     [Header("Звуки")]
     [SerializeField] private AudioClip soundShoot;
@@ -17,11 +18,16 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected int maxCurrentAmmo;
     [SerializeField] protected int maxBagAmmo;
     [SerializeField] protected float timeReload;
+    [SyncVar]
     [HideInInspector] public int CurrentAmmo;
+    [SyncVar]
     [HideInInspector] public int BagAmmo;
     [HideInInspector] public bool IsReloading;
     [HideInInspector] public bool IsTriggerPulled;
     [HideInInspector] public UIController UIListner;
+
+    [SyncVar]
+    public bool isInHands = false;
 
     public int MaxCurrentAmmo
     {

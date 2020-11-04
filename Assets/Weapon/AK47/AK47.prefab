@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2267dc35ea53e6448a93e90109abd2b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 1
+  syncInterval: 0.1
   soundShoot: {fileID: 8300000, guid: ac3347e239e84bb40a65d0c651031819, type: 3}
   soundMisfire: {fileID: 8300000, guid: e290c63f599ea4149b0d865d1ad49309, type: 3}
   soundReload: {fileID: 8300000, guid: b2b66ba8762a59246aab31498b5c15d9, type: 3}
@@ -129,6 +131,7 @@ MonoBehaviour:
   IsReloading: 0
   IsTriggerPulled: 0
   UIListner: {fileID: 0}
+  isInHands: 0
   deltaShoot: 0.1
 --- !u!82 &431311172276311222
 AudioSource:

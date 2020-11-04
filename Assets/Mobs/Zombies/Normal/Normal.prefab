@@ -175,7 +175,7 @@ MonoBehaviour:
   syncInterval: 0.1
   col: {fileID: 7925811520086305659}
   SetNameLocal: 0
-  SetRigidbodyKinematic: 0
+  SetRigidbodyKinematic: 1
   CollisionScale: 1
 --- !u!114 &291623128601574853
 MonoBehaviour:

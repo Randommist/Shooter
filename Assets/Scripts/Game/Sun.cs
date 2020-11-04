@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -6,14 +7,17 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Networking;
 
-public class Sun : MonoBehaviour
+public class Sun : NetworkBehaviour
 {
     public Light2D Солнце;
     public float SpeedSunriseSunset = 1f;
     public float Minintensity = 0.1f;
+    [SyncVar]
     public float TimeSpeed = 5;
 
+    [SyncVar]
     public int Hours;
+    [SyncVar]
     public float Minutes;
 
     // Update is called once per frame

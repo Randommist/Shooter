@@ -34,11 +34,14 @@ public class WeaponManager : NetworkBehaviour
                 {
                     if (colliderUnderMouse.GetComponent<Weapon>() != null)
                     {
-                        if (Vector2.Distance((Vector2)transform.position, (Vector2)colliderUnderMouse.transform.position) <= 3f)
+                        if (!colliderUnderMouse.GetComponent<Weapon>().isInHands)
                         {
-                            if (Input.GetButtonDown("PicUp"))
+                            if (Vector2.Distance((Vector2)transform.position, (Vector2)colliderUnderMouse.transform.position) <= 3f)
                             {
-                                PicUp(colliderUnderMouse);
+                                if (Input.GetButtonDown("PicUp"))
+                                {
+                                    PicUp(colliderUnderMouse);
+                                }
                             }
                         }
                     }
@@ -94,11 +97,11 @@ public class WeaponManager : NetworkBehaviour
 
     private void PicUp(Collider2D item)
     {
-        //hands.Show(true);
         currentWeapon = item.GetComponent<Weapon>();
-
+        currentWeapon.isInHands = true;
         currentWeapon.UIListner = MyUiController;
         MyUiController.UpdateAmmoText();
+
 
         CmdPicUp(item.GetComponent<NetworkIdentity>());
     }
@@ -106,13 +109,14 @@ public class WeaponManager : NetworkBehaviour
     [Command]
     void CmdPicUp(NetworkIdentity item)
     {
+        currentWeapon = item.GetComponent<Weapon>();
+        currentWeapon.isInHands = true;
         hands.Show(true);
         item.AssignClientAuthority(connectionToClient);
     }
 
     private void Drop()
     {
-        //hands.Show(false);
         currentWeapon.AudioSource.Stop();
         currentWeapon.IsReloading = false;
         currentWeapon.UIListner = null;
@@ -127,6 +131,12 @@ public class WeaponManager : NetworkBehaviour
     [Command]
     void CmdDrop(NetworkIdentity item)
     {
+        currentWeapon.AudioSource.Stop();
+        currentWeapon.IsReloading = false;
+        currentWeapon.UIListner = null;
+        currentWeapon.TriggerDismiss();
+        currentWeapon.isInHands = false;
+        currentWeapon = null;
         hands.Show(false);
         item.RemoveClientAuthority();
     }

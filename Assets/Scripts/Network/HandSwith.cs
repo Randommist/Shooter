@@ -7,21 +7,15 @@ public class HandSwith : NetworkBehaviour
 {
     [SyncVar]
     public bool isShow = false;
-
-    private SpriteRenderer renderer;
+    public SpriteRenderer hands;
 
     public void Show(bool show)
     {
         isShow = show;
     }
 
-    private void Start()
-    {
-        renderer = GetComponent<SpriteRenderer>();
-    }
-
     private void Update()
     {
-        renderer.enabled = isShow;
+        hands.enabled = isShow;
     }
 }

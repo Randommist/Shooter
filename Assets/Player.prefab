@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 4563264862876842096}
   - component: {fileID: 4563264862876842097}
   - component: {fileID: 3746466946509054263}
-  - component: {fileID: 490684914221776356}
   m_Layer: 0
   m_Name: Hands
   m_TagString: Untagged
@@ -129,21 +128,6 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &490684914221776356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4563264862876842111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c70ade16de7c140a02d42a3804342e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  isShow: 0
 --- !u!1 &4563264863544032280
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,11 +142,11 @@ GameObject:
   - component: {fileID: 4563264863544032284}
   - component: {fileID: 4563264863544032285}
   - component: {fileID: 8760098232210314506}
+  - component: {fileID: 2144231590888789647}
   - component: {fileID: 4563264863544032286}
   - component: {fileID: 4563264863544032287}
   - component: {fileID: 7540529032152404702}
   - component: {fileID: 18546461802734808}
-  - component: {fileID: 5108105115892428435}
   m_Layer: 0
   m_Name: Player
   m_TagString: Human
@@ -282,7 +266,7 @@ MonoBehaviour:
   syncInterval: 0.1
   MyUiController: {fileID: 0}
   WeaponPosition: {fileID: 4563264862177595656}
-  hands: {fileID: 490684914221776356}
+  hands: {fileID: 2144231590888789647}
   currentWeapon: {fileID: 0}
   WeaponLayer:
     serializedVersion: 2
@@ -305,6 +289,22 @@ MonoBehaviour:
   SetNameLocal: 1
   SetRigidbodyKinematic: 1
   CollisionScale: 1
+--- !u!114 &2144231590888789647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563264863544032280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c70ade16de7c140a02d42a3804342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 1
+  syncInterval: 0.1
+  isShow: 0
+  hands: {fileID: 4563264862876842097}
 --- !u!58 &4563264863544032286
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -376,25 +376,6 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
---- !u!114 &5108105115892428435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4563264863544032280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 1
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
-  target: {fileID: 4563264862876842096}
 --- !u!1 &4563264863674551293
 GameObject:
   m_ObjectHideFlags: 0
