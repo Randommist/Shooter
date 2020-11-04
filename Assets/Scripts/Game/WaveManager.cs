@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class WaveManager : MonoBehaviour
+public class WaveManager : NetworkBehaviour
 {
     public GameObject[] Zombies;
     public Transform[] SpawnPoints;
@@ -21,7 +22,8 @@ public class WaveManager : MonoBehaviour
             spawnTimeLater += Time.deltaTime;
             if (spawnTimeLater >= spawnTime)
             {
-                Instantiate(Zombies[0], SpawnPoints[0].position, Quaternion.identity);
+                GameObject e = Instantiate(Zombies[0], SpawnPoints[0].position, Quaternion.identity) as GameObject;
+                NetworkServer.Spawn(e);
                 spawnTimeLater = 0;
             }
         }

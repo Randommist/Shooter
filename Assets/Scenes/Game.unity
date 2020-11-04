@@ -728,6 +728,75 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &319966237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 319966240}
+  - component: {fileID: 319966239}
+  - component: {fileID: 319966238}
+  m_Layer: 0
+  m_Name: SpawnWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &319966238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319966237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8fbf6c97156774199adf2a08d974f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  Weapons:
+  - {fileID: 2779662219133132332, guid: 0badf4c8d69bd0e4ead95b674ec06ff0, type: 3}
+  - {fileID: 653655103043875507, guid: c6d80beeae91a714eb68da137775cd72, type: 3}
+  - {fileID: 5513157792511543304, guid: 6a0aea38ef871734887b824722d7d58b, type: 3}
+  SpawnPoints:
+  - {fileID: 938660126}
+  - {fileID: 1256357988}
+--- !u!114 &319966239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319966237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 2017975037
+  serverOnly: 1
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!4 &319966240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319966237}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.54, y: -0.46, z: -0.46666208}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &331530057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,7 +2094,7 @@ Transform:
   - {fileID: 634094826}
   - {fileID: 357369362}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509871770
 GameObject:
@@ -25332,7 +25401,7 @@ Transform:
   - {fileID: 1161654426}
   - {fileID: 1606950621}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &938660125
 GameObject:
@@ -25710,7 +25779,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -26047,7 +26116,7 @@ Transform:
   - {fileID: 938660126}
   - {fileID: 1256357988}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1469308713
 GameObject:
@@ -26532,6 +26601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1760610880}
   - component: {fileID: 1760610879}
+  - component: {fileID: 1760610881}
   m_Layer: 0
   m_Name: WaveManager
   m_TagString: Untagged
@@ -26551,6 +26621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953a8dbe6ddb29a40aa6d561c72b9599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   Zombies:
   - {fileID: 8374541351707102608, guid: 4176c6e19c94cd2459c8ece3e1a6b3c1, type: 3}
   SpawnPoints:
@@ -26570,6 +26642,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760610881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760610878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 1920004199
+  serverOnly: 1
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &1780388984
 GameObject:
   m_ObjectHideFlags: 0
@@ -27059,7 +27147,7 @@ MonoBehaviour:
   "\u0421\u043E\u043B\u043D\u0446\u0435": {fileID: 2013229892}
   SpeedSunriseSunset: 1
   Minintensity: 0.1
-  TimeSpeed: 5
+  TimeSpeed: 10
   Hours: 8
   Minutes: 0
 --- !u!1 &2099101406
@@ -27094,7 +27182,7 @@ Transform:
   - {fileID: 1983124782}
   - {fileID: 789887288}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2145043521
 GameObject:
@@ -27190,7 +27278,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27736,17 +27824,17 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -7882194075832096260, guid: 559fdf6d927352049a276e4991ce42a5,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 4207893234429054066, guid: 559fdf6d927352049a276e4991ce42a5,
       type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 8755703681871783605, guid: 559fdf6d927352049a276e4991ce42a5,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -7882194075832096260, guid: 559fdf6d927352049a276e4991ce42a5,
+      type: 3}
   - m_RefCount: 13
     m_Data: {fileID: -1958611347465311344, guid: 559fdf6d927352049a276e4991ce42a5,
       type: 3}

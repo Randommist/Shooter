@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class SpawnWeapons : MonoBehaviour
+public class SpawnWeapons : NetworkBehaviour
 {
     public GameObject[] Weapons;
     public Transform[] SpawnPoints;
@@ -12,7 +13,8 @@ public class SpawnWeapons : MonoBehaviour
     {
         for (int i = 0; i < SpawnPoints.Length; i++)
         {
-            Instantiate(Weapons[Random.Range(0, Weapons.Length)], SpawnPoints[i].position, Quaternion.identity);
+            GameObject w = Instantiate(Weapons[Random.Range(0, Weapons.Length)], SpawnPoints[i].position, Quaternion.identity) as GameObject;
+            NetworkServer.Spawn(w);
         }
 
     }

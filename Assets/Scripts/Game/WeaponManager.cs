@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : NetworkBehaviour
 {
     public UIController MyUiController;
     [SerializeField] private Transform WeaponPosition;
-    [SerializeField] private GameObject hands;
+    [SerializeField] private HandSwith hands;
     public Weapon currentWeapon;
     public LayerMask WeaponLayer;
     
@@ -15,11 +16,13 @@ public class WeaponManager : MonoBehaviour
 
     void Start()
     {
-        hands.SetActive(false);
+        hands.Show(false);
     }
 
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
 
         if (!GlobalVariables.IsPause)
         {
@@ -91,23 +94,41 @@ public class WeaponManager : MonoBehaviour
 
     private void PicUp(Collider2D item)
     {
-        hands.SetActive(true);
+        //hands.Show(true);
         currentWeapon = item.GetComponent<Weapon>();
 
         currentWeapon.UIListner = MyUiController;
         MyUiController.UpdateAmmoText();
+
+        CmdPicUp(item.GetComponent<NetworkIdentity>());
+    }
+
+    [Command]
+    void CmdPicUp(NetworkIdentity item)
+    {
+        hands.Show(true);
+        item.AssignClientAuthority(connectionToClient);
     }
 
     private void Drop()
     {
-        hands.SetActive(false);
+        //hands.Show(false);
         currentWeapon.AudioSource.Stop();
         currentWeapon.IsReloading = false;
         currentWeapon.UIListner = null;
         currentWeapon.TriggerDismiss();
+
+        CmdDrop(currentWeapon.GetComponent<NetworkIdentity>());
+
         currentWeapon = null;
         MyUiController.UpdateAmmoText();
     }
 
+    [Command]
+    void CmdDrop(NetworkIdentity item)
+    {
+        hands.Show(false);
+        item.RemoveClientAuthority();
+    }
 
 }
